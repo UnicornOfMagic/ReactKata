@@ -1,13 +1,30 @@
 language: node_js
 node_js:
   - "8.4"
-sudo: false
 cache:
   directories:
     - $HOME/.yarn-cache
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
+matrix:
+  include:
+    - language: android
+      os: linux
+      jdk: oraclejdk8
+      env:
+        - REACT_NATIVE_VERSION=0.55.3
+      android:
+        components:
+          - build-tools-27.0.2
+          - build-tools-26.0.2
+          - android-27
+          - extra-android-m2repository
+          - extra-google-google_play_services
+          - extra-google-m2repository
+          - sys-img-armeabi-v7a-android-27
+      script:
+      - cd android && ./gradlew assembleRelease
 script:
   - yarn install
   - npm rebuild detox
-  - npm run test:detox:android
+  - yarn test:detox:android
