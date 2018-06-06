@@ -32,17 +32,19 @@ matrix:
           - sys-img-armeabi-v7a-android-19
       install:
         - android list targets
-        - android create avd --force -n test -t android-19 --abi armeabi-v7a
       script:
         # Install the system image.
         # - sdkmanager "system-images;android-27;default;armeabi-v7a"
         # # Create and start emulator for the script. Meant to race the install task.
         # - echo no | avdmanager create avd --force -n test -k "system-images;android-27;default;armeabi-v7a"
-        # - $ANDROID_HOME/emulator/emulator -avd test -no-audio -no-window &
+        - emulator -avd test -no-audio -no-window &
         # # Build apk
         - cd android && ./gradlew assembleRelease && cd ..
         # fix detox
         - npm rebuild detox
+        # build detox
         - ./node_modules/.bin/detox build --configuration android.emu.debug
+        # wait for emulator to finish starting
         - adb wait-for-device
+        # run e2e tests
         - ./node_modules/.bin/detox test --configuration android.emu.debug
