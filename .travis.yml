@@ -42,7 +42,7 @@ matrix:
         # - sdkmanager "system-images;android-27;default;armeabi-v7a"
         # # Create and start emulator for the script. Meant to race the install task.
         # - echo no | avdmanager create avd --force -n test -k "system-images;android-27;default;armeabi-v7a"
-        - emulator -verbose -avd test -no-audio -no-window &
+        - emulator -verbose -avd test -no-audio -no-window -accel on -engine qemu2 &
         # # Build apk
         - cd android && ./gradlew assembleRelease && cd ..
         # build detox
