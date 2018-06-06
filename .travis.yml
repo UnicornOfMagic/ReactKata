@@ -29,4 +29,5 @@ matrix:
         - cd android && ./gradlew assembleRelease && cd ..
         - npm rebuild detox
         - ./node_modules/.bin/detox build --configuration android.emu.debug
+        - ./waitForEmulator.sh
         - ./node_modules/.bin/detox test --configuration android.emu.debug
