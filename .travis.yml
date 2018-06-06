@@ -29,10 +29,11 @@ matrix:
           - build-tools-26.0.2
           - android-27
           - android-19
+          - extra-google-simulators
           - extra-android-m2repository
           - extra-google-google_play_services
           - extra-google-m2repository
-          - sys-img-x86-android-19
+          - sys-img-x86-google_apis-19
       install:
         - android list targets
         - echo no | android create avd --force -n test -t android-19
@@ -50,6 +51,7 @@ matrix:
         - emulator -avd test -no-audio -no-window &
         - adb kill-server
         - adb start-server
+        - adb reconnect device
         - adb reconnect
         - adb wait-for-device
         # run e2e tests
