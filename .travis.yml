@@ -47,6 +47,7 @@ matrix:
         # build detox
         - ./node_modules/.bin/detox build --configuration android.emu.debug
         # wait for emulator to boot
+        - emulator -avd test -no-audio -no-window &
         - adb kill-server
         - adb start-server
         - adb reconnect
