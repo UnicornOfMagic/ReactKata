@@ -31,7 +31,8 @@ matrix:
           - extra-google-m2repository
           - sys-img-armeabi-v7a-android-27
       install:
-        - android create avd --force -n test -t android-22 --abi armeabi-v7a
+        - android list targets
+        - android create avd --force -n test -t android-27 --abi armeabi-v7a
       script:
         # Install the system image.
         # - sdkmanager "system-images;android-27;default;armeabi-v7a"
