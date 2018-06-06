@@ -26,6 +26,6 @@ matrix:
           - extra-google-m2repository
           - sys-img-armeabi-v7a-android-27
       script:
-        - cd android && ./gradlew assembleRelease
+        - cd android && ./gradlew assembleRelease && cd ..
         - npm rebuild detox
         - yarn test:detox:android
