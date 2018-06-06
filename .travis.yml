@@ -32,6 +32,7 @@ matrix:
           - sys-img-armeabi-v7a-android-19
       install:
         - android list targets
+        - emulator -list-avds
       script:
         # Install the system image.
         # - sdkmanager "system-images;android-27;default;armeabi-v7a"
