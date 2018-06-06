@@ -27,6 +27,5 @@ matrix:
           - sys-img-armeabi-v7a-android-27
       script:
         - cd android && ./gradlew assembleRelease
-script:
-  - npm rebuild detox
-  - yarn test:detox:android
+        - npm rebuild detox
+        - yarn test:detox:android
