@@ -25,15 +25,14 @@ matrix:
         components:
           - build-tools-27.0.3
           - build-tools-26.0.2
-          - android-27
+          - android-19
           - extra-android-m2repository
           - extra-google-google_play_services
           - extra-google-m2repository
-          - sys-img-armeabi-v7a-android-27
+          - sys-img-armeabi-v7a-android-19
       install:
-        - android update sdk -a --no-ui
         - android list targets
-        - android create avd --force -n test -t android-27 --abi armeabi-v7a
+        - android create avd --force -n test -t android-19 --abi armeabi-v7a
       script:
         # Install the system image.
         # - sdkmanager "system-images;android-27;default;armeabi-v7a"
