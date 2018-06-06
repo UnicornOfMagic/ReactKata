@@ -36,7 +36,7 @@ matrix:
           - sys-img-x86-google_apis-19
       install:
         - android list targets
-        - echo no | android create avd --force -n test -t android-19
+        - echo no | android create avd --force -n test -t android-19 --abi google_apis/x86
       script:
         # Install the system image.
         # - sdkmanager "system-images;android-27;default;armeabi-v7a"
