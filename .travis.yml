@@ -31,6 +31,7 @@ matrix:
           - extra-google-m2repository
           - sys-img-armeabi-v7a-android-27
       install:
+        - android update sdk -a --no-ui --filter sys-img-armeabi-v7a-android-27
         - android list targets
         - android create avd --force -n test -t android-27 --abi armeabi-v7a
       script:
