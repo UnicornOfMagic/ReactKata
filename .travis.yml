@@ -6,6 +6,8 @@ cache:
     - $HOME/.yarn-cache
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
+before_install:
+  - yarn install
 matrix:
   include:
     - language: android
@@ -23,7 +25,6 @@ matrix:
           - extra-google-m2repository
           - sys-img-armeabi-v7a-android-27
       script:
-        - yarn install
         - cd android && ./gradlew assembleRelease
 script:
   - npm rebuild detox
