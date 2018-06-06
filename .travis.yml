@@ -28,4 +28,5 @@ matrix:
       script:
         - cd android && ./gradlew assembleRelease && cd ..
         - npm rebuild detox
-        - yarn test:detox:android
+        - ./node_modules/.bin/detox build --configuration android.emu.debug
+        - ./node_modules/.bin/detox test --configuration android.emu.debug
